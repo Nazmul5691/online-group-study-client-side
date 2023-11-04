@@ -57,7 +57,7 @@ const Login = () => {
 
     return (
         <div className="mb-16">
-      <h2 className="text-2xl text-center mt-10">Please Login</h2>
+      <h2 className="text-2xl text-center mt-10 font-bold">Please Login</h2>
 
       <div className="card flex-shrink-0 mx-auto mt-12 w-full max-w-sm shadow-xl bg-base-100">
         <form onSubmit={handleLogin} className="card-body">
@@ -99,12 +99,14 @@ const Login = () => {
           <Link to="/signUp">
             <span className="text-blue-700 font-bold"> Register</span>
           </Link>
+
+          <div className="flex items-center justify-center mt-8">
+        <button onClick={handleGoogleSignIn} className="btn bg-base-300">Login With Google</button>
+      </div>
         </p>
         
       </div>
-      <div className="flex items-center justify-center mt-4">
-        <button onClick={handleGoogleSignIn} className="btn">Login With Google</button>
-      </div>
+      
     </div>
     );
 };
