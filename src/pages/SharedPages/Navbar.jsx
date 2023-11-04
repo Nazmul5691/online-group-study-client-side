@@ -49,6 +49,32 @@ const Navbar = () => {
     </>
   );
 
+  const navLinksAfterLogin = (
+    <>
+      <li>
+        <NavLink className="font-bold" to="/">
+          Home
+        </NavLink>
+      </li>
+      
+      <li>
+        <NavLink className="font-bold" to="/assignment">
+        Assignment
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className="font-bold" to="/createAssignment">
+        Create Assignment
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className="font-bold" to="/signUp">
+          Register
+        </NavLink>
+      </li>
+    </>
+  );
+
   return (
     <div className={`navbar bg-base-200 md:px-10 sticky top-0 z-10`}>
       <div className="navbar-start">
