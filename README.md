@@ -1,6 +1,6 @@
 # Online Study Group Website
 
-[click here to visit our website](http://localhost:3000)
+[click here to visit our website](http://localhost:5173)
 
 
 Welcome to the Online Study Group Website! This platform aims to provide a hub for students to connect, collaborate, and enhance their learning experience with features designed to facilitate your academic journey.
