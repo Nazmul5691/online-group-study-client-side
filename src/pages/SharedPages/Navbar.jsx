@@ -21,7 +21,7 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <NavLink className="font-bold ml-72" to="/">
+        <NavLink className="font-bold lg:ml-72" to="/">
           Home
         </NavLink>
       </li>

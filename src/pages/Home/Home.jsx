@@ -1,6 +1,7 @@
 import Banner from "./Banner";
 import Faq from "./Faq";
 import Features from "./Features";
+import ReviewSection from "./ReviewSection";
 
 
 
@@ -16,6 +17,9 @@ const Home = () => {
             </div>
             <div className="my-16 max-w-6xl mx-auto">
                 <Faq></Faq>
+            </div>
+            <div className="my-16 max-w-6xl mx-auto">
+                <ReviewSection></ReviewSection>
             </div>
         </div>
     );
