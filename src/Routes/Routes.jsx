@@ -8,11 +8,13 @@ import CreateAssignment from "../pages/CreateAssignment/CreateAssignment";
 import MyAssignment from "../pages/MyAssignment/MyAssignment";
 import SubmittedAssignment from "../pages/SubmittedAssignment/SubmittedAssignment";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path: '/',
