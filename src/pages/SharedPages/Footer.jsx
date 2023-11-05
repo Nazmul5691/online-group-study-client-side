@@ -1,8 +1,13 @@
+import logo from '../../../public/logo.png'
+
 const Footer = () => {
   return (
     <footer className="footer p-10 bg-black text-white">
       <aside>
-        <h1 className="font-bold text-blue-500 text-3xl">Tech Trends</h1>
+        <div className='flex'>
+        <img className='w-[45px] h-[45px] rounded-full mr-3' src={logo} alt="" />
+        <h1 className="font-bold text-blue-500 text-3xl">Learn Hub</h1>
+        </div>
         <p>Providing reliable services since 2005</p>
       </aside>
       <nav>
