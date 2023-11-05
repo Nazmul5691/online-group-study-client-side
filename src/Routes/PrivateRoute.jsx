@@ -1,26 +1,26 @@
 /* eslint-disable react/prop-types */
 import { useContext } from "react";
-
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
+import '../spninner/spinner.css'; // Import the spinner CSS here
 
+const PrivateRoute = ({ children }) => {
+  const { user, loading } = useContext(AuthContext);
+  const location = useLocation();
 
-const PrivateRoute = ({children}) => {
+  if (loading) {
+    return (
+      <div className="spinner-container">
+        <span className="spinner"></span>
+      </div>
+    );
+  }
 
-    const {user, loading} = useContext(AuthContext)
-    const location = useLocation();
-    // console.log(location);
+  if (user?.email) {
+    return children;
+  }
 
-    if(loading){
-        return <span className="loading loading-spinner text-primary"></span>
-    }
-
-
-    if(user?.email){
-        return children;
-    }
-
-    return <Navigate state={location} to='/login' replace></Navigate>
+  return <Navigate state={location} to="/login" replace></Navigate>;
 };
 
 export default PrivateRoute;
