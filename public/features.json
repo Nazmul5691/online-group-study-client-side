@@ -1,20 +1,24 @@
 [
       {
+        "featureId": "01",
         "featureImage": "https://i.ibb.co/rtRt6wD/f1.jpg",
         "featureTitle": "Live Study Groups",
         "featureDescription": "Join live study groups with students from around the world to collaborate on assignments and discussions."
       },
       {
+        "featureId": "02",
         "featureImage": "https://i.ibb.co/RCNQqR9/f2.jpg",
         "featureTitle": "Resource Library",
         "featureDescription": "Access an extensive library of study materials, books, and resources to enhance your learning journey."
       },
       {
+        "featureId": "03",
         "featureImage": "https://i.ibb.co/vx9sPfC/f3.jpg",
         "featureTitle": "Real-time Chat",
         "featureDescription": "Engage in real-time chat discussions with study group members, share notes, and build connections."
       },
       {
+        "featureId": "04",
         "featureImage": "https://i.ibb.co/Mc6wPC8/f4.jpg",
         "featureTitle": "Progress Tracking",
         "featureDescription": "Track your study progress, set goals, and celebrate your achievements as you learn."
