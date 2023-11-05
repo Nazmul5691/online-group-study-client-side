@@ -10,14 +10,14 @@ const CreateAssignment = () => {
     event.preventDefault();
 
     const form = event.target;
-    const name = form.name.value;
+    const title = form.title.value;
     const marks = form.marks.value;
     const description = form.description.value;
     const thumbnail = form.thumbnail.value;
     const difficultyLevel = form.difficultyLevel.value;
     const photo = form.photo.value;
 
-    const newProduct = { name, marks, description, thumbnail, dueDate, difficultyLevel, photo };
+    const newProduct = { title, marks, description, thumbnail, dueDate, difficultyLevel, photo };
     console.log(newProduct);
 
     // Send data to the server (you can adapt this to your server setup)
@@ -53,7 +53,7 @@ const CreateAssignment = () => {
                 <span className="label-text">Assignment Title</span>
               </label>
               <label className="input-group">
-                <input type="text" placeholder="Assignment Title" name="name" className="input input-bordered w-full" />
+                <input type="text" placeholder="Assignment Title" name="title" className="input input-bordered w-full" />
               </label>
             </div>
 
@@ -132,7 +132,7 @@ const CreateAssignment = () => {
 
           <input
             type="submit"
-            value="Add Product"
+            value="Create Assignment"
             className="bg-slate-800 text-white hover:bg-slate-600 btn btn-block"
           />
         </form>
