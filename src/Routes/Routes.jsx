@@ -60,7 +60,7 @@ const router = createBrowserRouter([
         },
         {
             path: '/assignmentSubmissionPage/:id',
-            element: <AssignmentSubmissionPage></AssignmentSubmissionPage>,
+            element: <PrivateRoute><AssignmentSubmissionPage></AssignmentSubmissionPage></PrivateRoute>,
             loader: ({params}) => fetch(`http://localhost:5000/assignmentSubmissionPage/${params.id}`)
         }
       ]

@@ -12,7 +12,7 @@ const AssignmentSubmissionPage = () => {
 
   return (
     <div>
-      <h2>Assignment Submission Page: {title}</h2>
+      <h2 className="text-2xl font-extrabold text-center my-5">Assignment Submission on: {title}</h2>
       <AssignmentSubmission></AssignmentSubmission>
     </div>
   );
