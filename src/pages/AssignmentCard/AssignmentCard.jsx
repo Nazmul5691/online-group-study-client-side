@@ -11,7 +11,7 @@ const AssignmentCard = ({ assignment }) => {
         <figure>
           <img className="h-40 md:h-auto w-full lg:w-[700px] md:w-48 md:flex-shrink-0" src={photo} alt="" />
         </figure>
-  
+          
         <div className="card-body">
           <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
           <p className="text-lg mt-4 w-[380px]">{description}</p>
