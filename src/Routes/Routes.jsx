@@ -10,6 +10,9 @@ import SubmittedAssignment from "../pages/SubmittedAssignment/SubmittedAssignmen
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import UpdateAssignment from "../pages/UpdateAssignment/UpdateAssignment";
+import ViewAssignment from "../pages/ViewAssignment/ViewAssignment.JSX";
+import AssignmentSubmissionPage from "../pages/AssignmentSubmissionPage/AssignmentSubmissionPage";
+
 
 const router = createBrowserRouter([
     {
@@ -47,8 +50,18 @@ const router = createBrowserRouter([
         },
         {
             path: '/updateAssignment/:id',
-            element: <UpdateAssignment></UpdateAssignment>,
+            element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
             loader: ({params}) => fetch(`http://localhost:5000/updateAssignment/${params.id}`)
+        },
+        {
+            path: '/viewAssignment/:id',
+            element: <PrivateRoute><ViewAssignment></ViewAssignment></PrivateRoute>,
+            loader: ({params}) => fetch(`http://localhost:5000/viewAssignment/${params.id}`)
+        },
+        {
+            path: '/assignmentSubmissionPage/:id',
+            element: <AssignmentSubmissionPage></AssignmentSubmissionPage>,
+            loader: ({params}) => fetch(`http://localhost:5000/assignmentSubmissionPage/${params.id}`)
         }
       ]
     },
