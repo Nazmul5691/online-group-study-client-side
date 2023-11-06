@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 const AssignmentCard = ({ assignment }) => {
-    const { title, marks, description, thumbnail, dueDate, difficultyLevel, photo } = assignment;
+    const { _id,title, marks, description, thumbnail, dueDate, difficultyLevel, photo } = assignment;
   
     return (
       <div className="card lg:card-side bg-base-100 my-8 shadow-xl">
@@ -21,9 +23,11 @@ const AssignmentCard = ({ assignment }) => {
             <button className="py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-700">
               View Assignment
             </button>
+            <Link to={`/updateAssignment/${_id}`}>
             <button className="ml-3 py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-700">
               Update Assignment
             </button>
+            </Link>
           </div>
         </div>
       </div>

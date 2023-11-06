@@ -1,12 +1,17 @@
-import  { useState } from 'react';
-import DatePicker from 'react-datepicker';
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker'; // Corrected import statement
 import 'react-datepicker/dist/react-datepicker.css';
+import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const CreateAssignment = () => {
+const UpdateAssignment = () => {
+  const assignment = useLoaderData();
   const [dueDate, setDueDate] = useState(null);
 
-  const handleCreateAssignment = (event) => {
+  const { _id, title, marks, description, thumbnail, difficultyLevel, photo } = assignment;
+
+  const handleUpdateAssignment = (event) => {
     event.preventDefault();
 
     const form = event.target;
@@ -17,24 +22,24 @@ const CreateAssignment = () => {
     const difficultyLevel = form.difficultyLevel.value;
     const photo = form.photo.value;
 
-    const newProduct = { title, marks, description, thumbnail, dueDate, difficultyLevel, photo };
-    console.log(newProduct);
 
-    // Send data to the server 
-    fetch('http://localhost:5000/createAssignment', {
-      method: 'POST',
+    const updatedAssignment = { _id, title, marks, description, thumbnail, difficultyLevel, photo }
+
+    // Send data to the server
+    fetch(`http://localhost:5000/createAssignment/${_id}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(newProduct),
+      body: JSON.stringify(updatedAssignment), // Use the assignment object
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: 'Success!',
-            text: 'Assignment created successfully',
+            text: 'Assignment updated successfully',
             icon: 'success',
             confirmButtonText: 'Cool',
           });
@@ -45,15 +50,15 @@ const CreateAssignment = () => {
   return (
     <div>
       <div className="bg-gray-300 p-24">
-        <h2 className="text-3xl font-extrabold text-center mb-5">Create Assignment</h2>
-        <form onSubmit={handleCreateAssignment}>
+        <h2 className="text-3xl font-extrabold text-center mb-5">Update Assignment of : {title}</h2>
+        <form onSubmit={handleUpdateAssignment}>
           <div className="md:flex mb-8">
             <div className="form-control md:w-1/2">
               <label className="label">
                 <span className="label-text">Assignment Title</span>
               </label>
               <label className="input-group">
-                <input type="text" placeholder="Assignment Title" name="title" className="input input-bordered w-full" />
+                <input type="text" placeholder="Assignment Title" defaultValue={title} name="title" className="input input-bordered w-full" />
               </label>
             </div>
 
@@ -62,58 +67,57 @@ const CreateAssignment = () => {
                 <span className="label-text">Marks</span>
               </label>
               <label className="input-group">
-                <input type="text" placeholder="Marks" name="marks" className="input input-bordered w-full" />
+                <input type="text" placeholder="Marks" defaultValue={marks} name="marks" className="input input-bordered w-full" />
               </label>
             </div>
           </div>
 
           <div className="md:flex mb-8">
-            <div className="form-control md:w-1/2 ">
+            <div className="form-control md:w-1/2">
               <label className="label">
                 <span className="label-text">Description</span>
               </label>
               <label className="input-group">
-                <input type="text" placeholder="Description" name="description" className="input input-bordered w-full" />
+                <input type="text" placeholder="Description"  defaultValue={description} name="description" className="input input-bordered w-full" />
               </label>
             </div>
 
-            <div className="form-control md:w-1/2  ml-4">
+            <div className="form-control md:w-1/2 ml-4">
               <label className="label">
                 <span className="label-text">Thumbnail</span>
               </label>
               <label className="input-group">
-                <input type="text" placeholder="Thumbnail url" name="thumbnail" className="input input-bordered w-full" />
+                <input type="text" placeholder="Thumbnail url"  defaultValue={thumbnail} name="thumbnail" className="input input-bordered w-full" />
               </label>
             </div>
           </div>
 
           <div className="md:flex mb-8">
-        <div className="form-control md:w-1/2 ">
-                <label className="label">
+            <div className="form-control md:w-1/2">
+              <label className="label">
                 <span className="label-text">Photo url</span>
-                </label>
-                <label className="input-group">
-                <input type="text" placeholder="Photo url" name="photo" className="input input-bordered w-full" />
-                </label>
+              </label>
+              <label className="input-group">
+                <input type="text" placeholder="Photo url"  defaultValue={photo} name="photo" className="input input-bordered w-full" />
+              </label>
             </div>
 
             <div className="form-control ml-4">
-                <label className="label">
+              <label className="label">
                 <span className="label-text">Due Date</span>
-                </label>
-                <label className="input-group">
+              </label>
+              <label className="input-group">
                 <DatePicker
-                    selected={dueDate}
-                    onChange={(date) => setDueDate(date)}
-                    placeholderText="Due Date"
-                    name="dueDate"
-                    className="input input-bordered w-full"
+                  selected={dueDate}
+                  onChange={(date) => setDueDate(date)}
+                  defaultValue={dueDate}
+                  placeholderText="Due Date"
+                  name="dueDate"
+                  className="input input-bordered w-full"
                 />
-                </label>
-        </div>
-  
-</div>
-
+              </label>
+            </div>
+          </div>
 
           <div className="md:flex mb-8">
             <div className="form-control md:w-1/2 mb-16">
@@ -121,7 +125,7 @@ const CreateAssignment = () => {
                 <span className="label-text">Difficulty Level</span>
               </label>
               <label className="select">
-                <select name="difficultyLevel" className="select  w-full">
+                <select name="difficultyLevel"  defaultValue={difficultyLevel} className="select w-full">
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
                   <option value="hard">Hard</option>
@@ -132,7 +136,7 @@ const CreateAssignment = () => {
 
           <input
             type="submit"
-            value="Create Assignment"
+            value="Update Assignment"
             className="bg-slate-800 text-white hover:bg-slate-600 btn btn-block"
           />
         </form>
@@ -141,4 +145,4 @@ const CreateAssignment = () => {
   );
 };
 
-export default CreateAssignment;
+export default UpdateAssignment;

@@ -32,30 +32,30 @@ const SignUp = () => {
         const user = { email, createdAt: createdAt };
 
         // Send user data to your server (Assuming you have a server)
-    //     fetch('https://brand-shop-server-4wdfw8v0z-nazmuls-projects-da750e87.vercel.app/user', {
-    //       method: 'POST',
-    //       headers: {
-    //         'content-type': 'application/json'
-    //       },
-    //       body: JSON.stringify(user)
-    //     })
-    //       .then(res => res.json())
-    //       .then(data => {
-    //         if (data.insertedId) {
-    //           Swal.fire("Registration Successful!", "You are now registered.", "success");
-    //         }
-    //       })
-    //       .catch(error => {
-    //         console.error(error);
-    //       });
-    //   })
-    //   .catch(error => {
-    //     // Registration failed
-    //     if (error.code === 'auth/email-already-in-use') {
-    //       setRegisterError('Email is already in use. Please choose a different one.');
-    //     } else {
-    //       setRegisterError('Registration error. Please try again.');
-    //     }
+        fetch('http://localhost:5000/user', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.insertedId) {
+              Swal.fire("Registration Successful!", "You are now registered.", "success");
+            }
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      })
+      .catch(error => {
+        // Registration failed
+        if (error.code === 'auth/email-already-in-use') {
+          setRegisterError('Email is already in use. Please choose a different one.');
+        } else {
+          setRegisterError('Registration error. Please try again.');
+        }
       });
   };
 
