@@ -39,8 +39,9 @@ const AssignmentSubmission = ({ assignmentId, assignmentTitle, assignmentMarks }
       assignmentMarks : assignmentMarks,
       text,
       pdfFile,
-      userEmail: user.email,
+      email: user.email,
       assignmentId,
+      
     };
 
     try {

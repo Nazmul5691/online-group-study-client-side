@@ -17,6 +17,7 @@ const AssignmentSubmissionPage = () => {
         assignmentId={_id}
         assignmentTitle={title}
         assignmentMarks={marks}
+        
       />
     </div>
   );
