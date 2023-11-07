@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 
-
-
+import React from "react";
 import { useLoaderData } from "react-router-dom";
-import AssignmentSubmission from "../../AssignmentSubmission/AssignmentSubmission ";
+import AssignmentSubmission from "../../AssignmentSubmission/AssignmentSubmission";
 
 
 const AssignmentSubmissionPage = () => {
@@ -17,7 +17,6 @@ const AssignmentSubmissionPage = () => {
         assignmentId={_id}
         assignmentTitle={title}
         assignmentMarks={marks}
-        
       />
     </div>
   );

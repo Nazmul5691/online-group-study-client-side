@@ -1,17 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import MyAssignmentCard from "../../MyAssignmentCard/MyAssignmentCard";
-
+import Swal from 'sweetalert2';
 
 const MyAssignment = () => {
 
     const {user} = useContext(AuthContext)
     const [ myAssignments, setMyAssignment ]  = useState([])
-    const { _id } = myAssignments
+    // const { _id } = myAssignments
 
     const url = `http://localhost:5000/mySubmittedAssignment?email=${user?.email}`
 
-    console.log(myAssignments);
+    // console.log(myAssignments);
 
 
     useEffect( () =>{
@@ -21,20 +21,23 @@ const MyAssignment = () => {
     },[url] )
 
 
-
-
     const handleDelete = id => {
         const proceed = confirm('Are You sure you want to delete');
         if (proceed) {
-            fetch(`http://localhost:5000/submittedAssignment/${_id}}`, {
+            fetch(`http://localhost:5000/mySubmittedAssignment/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
                     if (data.deletedCount > 0) {
-                        alert('deleted successful');
-                        const remaining = myAssignments.filter(datas => datas._id !== id);
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Assignment deleted successfully',
+                            icon: 'success',
+                            confirmButtonText: 'Cool',
+                          });
+                        const remaining = myAssignments.filter(myAssignment => myAssignment._id !== id);
                         setMyAssignment(remaining);
                     }
                 })
