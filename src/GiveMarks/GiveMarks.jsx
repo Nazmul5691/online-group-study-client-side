@@ -8,6 +8,7 @@ const GiveMarks = () => {
   const giveMarksData = useLoaderData();
 
   const { _id, assignmentTitle, text, assignmentMarks , pdfFile} = giveMarksData;
+  const googleDriveUrl = pdfFile;
 
   const [marks, setMarks] = useState("");
   const [feedback, setFeedback] = useState("");
@@ -70,7 +71,15 @@ const GiveMarks = () => {
           <div>
           <h3 className="text-xl font-bold">Assignment Marks : {assignmentMarks}</h3>
           <p className=" my-5"><span className="text-xl font-bold">Assignment note:</span> {text}</p>
-            <label htmlFor="marks" className="block font-bold">
+          <a
+          href={googleDriveUrl} // You should set the appropriate URL for the Google Drive link
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 underline"
+        >
+          View PDF File on Google Drive
+        </a>
+            <label htmlFor="marks" className="block font-bold mt-5">
              Give Marks
             </label>
             <input
@@ -98,6 +107,8 @@ const GiveMarks = () => {
           <button type="submit" className="w-full btn btn-primary">
             Submit Marks and Feedback
           </button>
+          
+        
         </div>
       </form>
     </div>
