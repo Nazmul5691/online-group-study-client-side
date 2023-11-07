@@ -12,6 +12,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import UpdateAssignment from "../pages/UpdateAssignment/UpdateAssignment";
 import ViewAssignment from "../pages/ViewAssignment/ViewAssignment.JSX";
 import AssignmentSubmissionPage from "../pages/AssignmentSubmissionPage/AssignmentSubmissionPage";
+import GiveMarks from "../GiveMarks/GiveMarks";
 
 
 const router = createBrowserRouter([
@@ -63,6 +64,11 @@ const router = createBrowserRouter([
             path: '/assignmentSubmissionPage/:id',
             element: <PrivateRoute><AssignmentSubmissionPage></AssignmentSubmissionPage></PrivateRoute>,
             loader: ({params}) => fetch(`http://localhost:5000/assignmentSubmissionPage/${params.id}`)
+        },
+        {
+            path: '/giveMarks/:id',
+            element: <GiveMarks></GiveMarks>,
+            loader: ({params}) => fetch(`http://localhost:5000/giveMarks/${params.id}`)
         }
       ]
     },

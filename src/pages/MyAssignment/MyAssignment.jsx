@@ -7,8 +7,11 @@ const MyAssignment = () => {
 
     const {user} = useContext(AuthContext)
     const [ myAssignments, setMyAssignment ]  = useState([])
+    const { _id } = myAssignments
 
-    const url = `http://localhost:5000/submittedAssignment?email?=${user?.email}`
+    const url = `http://localhost:5000/mySubmittedAssignment?email=${user?.email}`
+
+    console.log(myAssignments);
 
 
     useEffect( () =>{
@@ -23,7 +26,7 @@ const MyAssignment = () => {
     const handleDelete = id => {
         const proceed = confirm('Are You sure you want to delete');
         if (proceed) {
-            fetch(`http://localhost:5000/submittedAssignment/${id}}`, {
+            fetch(`http://localhost:5000/submittedAssignment/${_id}}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -31,7 +34,7 @@ const MyAssignment = () => {
                     console.log(data);
                     if (data.deletedCount > 0) {
                         alert('deleted successful');
-                        const remaining = myAssignments.filter(booking => booking._id !== id);
+                        const remaining = myAssignments.filter(datas => datas._id !== id);
                         setMyAssignment(remaining);
                     }
                 })

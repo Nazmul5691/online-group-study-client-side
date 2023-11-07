@@ -78,7 +78,7 @@ const Banner = () => {
         />
         <div className="absolute flex items-center h-full  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)]">
           <div className='text-white w-1/2 space-y-5 pl-9'>
-          <h2 className='text-4xl font-bold'>Meet, chat, and study with students Students Worldwide</h2>
+          <h2 className='text-4xl font-bold'>Meet, chat, and study with Students Worldwide</h2>
             <p>Join the world's biggest student community online and bid farewell to motivation hurdles.</p>
             <button className='btn btn-primary'>Study Together Now</button>
           </div>

@@ -10,7 +10,7 @@ const SubmittedAssignment = () => {
 
     useEffect(() => {
         // Make a GET request to fetch data from your server
-        fetch('http://localhost:5000/submittedAssignment')
+        fetch('http://localhost:5000/mySubmittedAssignment')
             .then((response) => response.json())
             .then((data) => {
                 setSubmittedAssignments(data);
@@ -22,15 +22,41 @@ const SubmittedAssignment = () => {
             });
     }, []);
 
+
+    const handleSubmittedConfirm = id => {
+        fetch(`http://localhost:5000/mySubmittedAssignment/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: 'confirm' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    // update state
+                    const remaining = submittedAssignments.filter(submittedAssignment => submittedAssignment._id !== id);
+                    const updated = submittedAssignments.find(submittedAssignment => submittedAssignment._id === id);
+                    updated.status = 'confirm'
+                    const submitAssignment = [updated, ...remaining];
+                    setSubmittedAssignments(submitAssignment);
+                }
+            })
+    }
+
+
+
     return (
         <div>
-            <h2>Submitted Assignment Pages</h2>
+            <h2 className='text-center text-4xl font-semibold my-5'>All Submitted Assignment </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 max-w-6xl mx-auto lg:grid-cols-2 gap-6 mb-20 mt-10">
                 {submittedAssignments.map((submittedAssignment) => (
                     <SubmittedAssignmentCard
                         key={submittedAssignment._id}
                         submittedAssignment={submittedAssignment}
+                        handleSubmittedConfirm={handleSubmittedConfirm}
                     />
                 ))}
             </div>
