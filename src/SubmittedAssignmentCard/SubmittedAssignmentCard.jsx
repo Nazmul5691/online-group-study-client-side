@@ -16,7 +16,7 @@ const SubmittedAssignmentCard = ({ submittedAssignment, handleSubmittedConfirm }
                 <h5 className="card-title">Title: {assignmentTitle}</h5>
                 <p className="card-text">Marks: {assignmentMarks}</p>
                 <Link to={`/giveMarks/${_id}`}>
-                    <button className="btn btn-primary">
+                    <button className="btn btn-primary w-full">
                         Give Mark
                     </button>
                 </Link>

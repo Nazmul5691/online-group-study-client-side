@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-// import { Button } from "@windicss/react/ui";
+import Swal from "sweetalert2";
+
 
 const GiveMarks = () => {
   const giveMarksData = useLoaderData();
@@ -30,7 +31,6 @@ const GiveMarks = () => {
     };
 
     try {
-      // Send the data to your server's API endpoint to save marks and feedback
       const response = await fetch("http://localhost:5000/saveMarksAndFeedback", {
         method: "POST",
         headers: {
@@ -40,8 +40,14 @@ const GiveMarks = () => {
       });
 
       if (response.ok) {
-        // Handle success, e.g., show a success message
-        console.log("Marks and feedback saved successfully.");
+        
+        // console.log("Marks and feedback saved successfully.");
+        Swal.fire({
+          title: "Success!",
+          text: "Giving marks and feedback Submitted successfully",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
       } else {
         // Handle errors, e.g., show an error message
         console.error("Error saving marks and feedback.");

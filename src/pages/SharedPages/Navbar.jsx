@@ -27,7 +27,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink className="font-bold" to="/assignment">
-          Assignment
+          All Assignment
         </NavLink>
       </li>
       <li>
@@ -47,7 +47,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink className="font-bold" to="/assignment">
-          Assignment
+          All Assignment
         </NavLink>
       </li>
       <li>

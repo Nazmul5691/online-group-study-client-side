@@ -53,7 +53,7 @@ const AssignmentSubmission = ({ assignmentId, assignmentTitle, assignmentMarks }
       });
 
       if (response.ok) {
-        console.log("Assignment submitted successfully");
+        // console.log("Assignment submitted successfully");
         Swal.fire({
           title: "Success!",
           text: "Assignment Submitted successfully",
