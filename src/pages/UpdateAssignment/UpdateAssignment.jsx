@@ -26,7 +26,7 @@ const UpdateAssignment = () => {
     const updatedAssignment = { _id, title, marks, description, thumbnail, difficultyLevel, photo }
 
     // Send data to the server
-    fetch(`https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/createAssignment/${_id}`, {
+    fetch(`https://y-beige-seven.vercel.app/createAssignment/${_id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

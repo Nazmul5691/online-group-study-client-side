@@ -43,7 +43,7 @@ const AssignmentSubmission = ({ assignmentId, assignmentTitle, assignmentMarks }
     };
 
     try {
-      const response = await fetch("https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/submittedAssignment", {
+      const response = await fetch("https://y-beige-seven.vercel.app/submittedAssignment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -198,7 +198,7 @@ export default AssignmentSubmission;
 //     };
 
 //     try {
-//       const response = await fetch("https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/submittedAssignment", {
+//       const response = await fetch("https://y-beige-seven.vercel.app/submittedAssignment", {
 //         method: "POST",
 //         headers: {
 //           "Content-Type": "application/json",

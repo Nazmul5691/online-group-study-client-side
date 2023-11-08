@@ -21,7 +21,7 @@ const CreateAssignment = () => {
     console.log(newProduct);
 
     // Send data to the server 
-    fetch('https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/createAssignment', {
+    fetch('https://y-beige-seven.vercel.app/createAssignment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
