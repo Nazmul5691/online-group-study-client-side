@@ -35,7 +35,7 @@ const GiveMarks = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/saveMarksAndFeedback", {
+      const response = await fetch("https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/saveMarksAndFeedback", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -179,7 +179,7 @@ export default GiveMarks;
 //     };
 
 //     try {
-//       const response = await fetch("http://localhost:5000/saveMarksAndFeedback", {
+//       const response = await fetch("https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/saveMarksAndFeedback", {
 //         method: "POST",
 //         headers: {
 //           "Content-Type": "application/json",

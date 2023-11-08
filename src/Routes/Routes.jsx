@@ -48,27 +48,27 @@ const router = createBrowserRouter([
         {
             path: '/submittedAssignment',
             element: <PrivateRoute><SubmittedAssignment></SubmittedAssignment></PrivateRoute>,
-            loader: () => fetch(`http://localhost:5000/submittedAssignment`)
+            loader: () => fetch(`https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/submittedAssignment`)
         },
         {
             path: '/updateAssignment/:id',
             element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/updateAssignment/${params.id}`)
+            loader: ({params}) => fetch(`https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/updateAssignment/${params.id}`)
         },
         {
             path: '/viewAssignment/:id',
             element: <PrivateRoute><ViewAssignment></ViewAssignment></PrivateRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/viewAssignment/${params.id}`)
+            loader: ({params}) => fetch(`https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/viewAssignment/${params.id}`)
         },
         {
             path: '/assignmentSubmissionPage/:id',
             element: <PrivateRoute><AssignmentSubmissionPage></AssignmentSubmissionPage></PrivateRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/assignmentSubmissionPage/${params.id}`)
+            loader: ({params}) => fetch(`https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/assignmentSubmissionPage/${params.id}`)
         },
         {
             path: '/giveMarks/:id',
             element: <GiveMarks></GiveMarks>,
-            loader: ({params}) => fetch(`http://localhost:5000/giveMarks/${params.id}`)
+            loader: ({params}) => fetch(`https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/giveMarks/${params.id}`)
         }
       ]
     },

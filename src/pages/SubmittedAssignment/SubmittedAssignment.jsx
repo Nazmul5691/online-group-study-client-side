@@ -13,7 +13,7 @@ const SubmittedAssignment = () => {
 
     useEffect(() => {
         // Make a GET request to fetch data from your server
-        fetch('http://localhost:5000/mySubmittedAssignment')
+        fetch('https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/mySubmittedAssignment')
             .then((response) => response.json())
             .then((data) => {
                 setSubmittedAssignments(data);
@@ -27,7 +27,7 @@ const SubmittedAssignment = () => {
 
 
     const handleSubmittedConfirm = id => {
-        fetch(`http://localhost:5000/mySubmittedAssignment/${id}`, {
+        fetch(`https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/mySubmittedAssignment/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

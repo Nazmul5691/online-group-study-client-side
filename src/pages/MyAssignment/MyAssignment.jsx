@@ -9,7 +9,7 @@ const MyAssignment = () => {
     const [ myAssignments, setMyAssignment ]  = useState([])
     // const { _id } = myAssignments
 
-    const url = `http://localhost:5000/mySubmittedAssignment?email=${user?.email}`
+    const url = `https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/mySubmittedAssignment?email=${user?.email}`
 
     // console.log(myAssignments);
 
@@ -24,7 +24,7 @@ const MyAssignment = () => {
     const handleDelete = id => {
         const proceed = confirm('Are You sure you want to delete');
         if (proceed) {
-            fetch(`http://localhost:5000/mySubmittedAssignment/${id}`, {
+            fetch(`https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/mySubmittedAssignment/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

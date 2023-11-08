@@ -7,7 +7,7 @@ const Assignment = () => {
   const [selectedDifficulty, setSelectedDifficulty] = useState(""); // State for the selected difficulty level
 
   useEffect(() => {
-    fetch("http://localhost:5000/createAssignment")
+    fetch("https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/createAssignment")
       .then((res) => res.json())
       .then((data) => setAssignments(data));
   }, []);
@@ -71,7 +71,7 @@ export default Assignment;
 //     const [assignments, setAssignments] = useState([])
 
 //     useEffect( () =>{
-//         fetch('http://localhost:5000/createAssignment')
+//         fetch('https://y-2gnpgecb1-nazmuls-projects-da750e87.vercel.app/createAssignment')
 //         .then(res => res.json())
 //         .then(data => setAssignments(data))
 //     },[])
