@@ -1,3 +1,7 @@
+
+
+// 2nd old code for view pdf link in new tab
+
 /* eslint-disable react/jsx-no-target-blank */
 import  { useState } from "react";
 import { useLoaderData } from "react-router-dom";
@@ -19,18 +23,6 @@ const GiveMarks = () => {
     setFeedback(e.target.value);
   };
 
-  // const openPdfInNewTab = () => {
-  //   if (pdfLink) {
-  //     window.open(pdfLink, "_blank");
-  //   } else {
-  //     Swal.fire({
-  //       title: "Error!",
-  //       text: "PDF file link is not available",
-  //       icon: "error",
-  //       confirmButtonText: "Ok",
-  //     });
-  //   }
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -136,10 +128,21 @@ export default GiveMarks;
  
  
  
+ // const openPdfInNewTab = () => {
+  //   if (pdfLink) {
+  //     window.open(pdfLink, "_blank");
+  //   } else {
+  //     Swal.fire({
+  //       title: "Error!",
+  //       text: "PDF file link is not available",
+  //       icon: "error",
+  //       confirmButtonText: "Ok",
+  //     });
+  //   }
+  // };
  
  
- 
- //old code
+ //1st old code
 
  
  /* eslint-disable no-unused-vars */
